@@ -1,29 +1,21 @@
 import requests
 from bs4 import BeautifulSoup
-import datetime as dt
-
-# crossfit.com main url
-crossfit_com_url = "https://www.crossfit.com/"
 
 
-def get_wod_by_date(date):
+def get_beautifulsoup(url):
     """
-    Get the date's wod.
-    :param date: The date of WOD to get.
-    :return: WOD content to string. [string]
+    Get beautifulsoup for url.
+    :param url: url to get beautifulsoup
+    :return: beautifulsoup for url. [beautifulsoup]
     """
-    if type(date) != dt.datetime:
-        return ""
+    res = requests.get(url)
+    if res.status_code != 200:
+        return None
 
-    response = requests.get(f'{crossfit_com_url}/{date.strftime("%y%m%d")}')
-    if response.status_code != 200:
-        return ""
-
-    soup = BeautifulSoup(response.text, 'html.parser')
-    return extract_wod(soup)
+    return BeautifulSoup(res.text, 'html.parser')
 
 
-def extract_wod(soup):
+def extract_wod_contents(soup):
     """
     Get Tag strings of wod from BeautifulSoup.
     :param soup: The BeautifulSoup for crossfit .com wod page.
@@ -33,7 +25,7 @@ def extract_wod(soup):
     if len(article) == 0:
         return ""
 
-    result = ""
+    result = '<p><h2>Today\'s workout</h2></p><br>'
     for p in article:
         result += str(p)
 
