@@ -1,2 +1,2 @@
-# crossfit-official-wod-notify
+# crossfit-com-wod
 Notify daily crosffit .com wod by opening issue
