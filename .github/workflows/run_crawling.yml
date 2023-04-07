@@ -30,4 +30,4 @@ jobs:
       run: |
         python main.py
       env:
-        ACCESS_TOKEN: \$
+        ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
