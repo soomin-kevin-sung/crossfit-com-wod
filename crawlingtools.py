@@ -22,12 +22,16 @@ def extract_wod_contents(soup):
     :return: Tag strings of wod [string]
     """
 
-    article = soup.select('article > div > p')
-    if len(article) == 0:
+    articles = soup.select('article')
+    if len(articles) == 0:
+        return ""
+
+    paragrphs = articles[0].select('div > p')
+    if len(paragrphs) == 0:
         return ""
 
     result = '<p><h2>Today\'s workout</h2></p><br>'
-    for p in article:
+    for p in paragrphs:
         result += str(p)
 
     return result
