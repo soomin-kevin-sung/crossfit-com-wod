@@ -30,4 +30,4 @@ jobs:
       run: |
         python main.py
       env:
-        Github_Access_Token: \$
+        ACCESS_TOKEN: \$
