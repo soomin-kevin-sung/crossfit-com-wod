@@ -18,19 +18,16 @@ jobs:
     steps:
     - name: Load Repository Files
       uses: actions/checkout@v3
-    - name: Test ls -al
-      run: |
-        ls -al
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.8'
-#     - name: Install dependencies
-#       run: |
-#         python -m pip install --upgrade pip
-#         pip install -r requirements.txt
-#     - name: Run Crawler
-#       run: |
-#         python main.py
-#       env:
-#         Github_Access_Token: \$
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run Crawler
+      run: |
+        python main.py
+      env:
+        Github_Access_Token: \$
