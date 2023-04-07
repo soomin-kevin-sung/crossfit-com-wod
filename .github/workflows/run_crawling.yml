@@ -1,0 +1,22 @@
+name: run_crawling
+
+on:
+  schedule:
+    - cron: '0 0 * * *
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Load Repository Files
+      uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+        cache: 'pip'
+        run: pip install -r requirements.txt
+    - name: Run Crawler
+        run: python main.py
+        env:
+          Github_Access_Token: \$
