@@ -1,4 +1,4 @@
-name: run_crawling
+name: Run Crossfit .com WOD Crawler
 
 on:
   schedule:
