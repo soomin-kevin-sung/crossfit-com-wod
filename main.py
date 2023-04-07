@@ -5,7 +5,7 @@ import githubtools
 
 # crossfit.com main url
 crossfit_com_url = "https://www.crossfit.com/"
-access_token = os.environ['Github_Access_Token']
+access_token = os.environ['ACESS_TOKEN']
 repository_name = 'crossfit-com-wod'
 
 
