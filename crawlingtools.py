@@ -10,9 +10,9 @@ def get_beautifulsoup(url):
     """
     res = requests.get(url)
     if res.status_code != 200:
-        return None
+        return res.status_code, None
 
-    return BeautifulSoup(res.text, 'html.parser')
+    return res.status_code, BeautifulSoup(res.text, 'html.parser')
 
 
 def extract_wod_contents(soup):
