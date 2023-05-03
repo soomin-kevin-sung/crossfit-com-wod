@@ -1,4 +1,4 @@
-import requests
+from selenium import webdriver
 from bs4 import BeautifulSoup
 
 
@@ -8,11 +8,17 @@ def get_beautifulsoup(url):
     :param url: url to get beautifulsoup
     :return: beautifulsoup for url. [beautifulsoup]
     """
-    res = requests.get(url)
-    if res.status_code != 200:
-        return res.status_code, None
+    driver = None
+    result = None
+    try:
+        driver = webdriver.Chrome()
+        driver.get(url)
 
-    return res.status_code, BeautifulSoup(res.text, 'html.parser')
+        result = BeautifulSoup(driver.page_source, 'html.parser')
+    finally:
+        driver.quit()
+
+    return result
 
 
 def extract_wod_contents(soup):
