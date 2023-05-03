@@ -11,7 +11,7 @@ def get_beautifulsoup(url):
     driver = None
     result = None
     try:
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome('chromedriver')
         driver.get(url)
 
         result = BeautifulSoup(driver.page_source, 'html.parser')
