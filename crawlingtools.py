@@ -19,7 +19,7 @@ def get_beautifulsoup(url):
         options.add_argument("disable-gpu")
         options.add_argument("--no-sandbox")
 
-        driver = webdriver.Chrome('chromedriver', options)
+        driver = webdriver.Chrome('chromedriver', chrome_options=options)
         driver.get(url)
 
         result = BeautifulSoup(driver.page_source, 'html.parser')
