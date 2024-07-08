@@ -54,13 +54,13 @@ def extract_date_title(soup):
     :return: Title string of wod [string]
     """
 
-    tags = soup.select('._day-text_1yolg_46')
+    tags = soup.select('._day-text_4rxx9_118')
     if len(tags) == 0:
         return "Not Loaded"
 
     day_text = tags[0].text
 
-    tags = soup.select('._date-text_1yolg_69')
+    tags = soup.select('._wrapper_kbm27_89')
     if len(tags) == 0:
         return "Not Loaded"
 
